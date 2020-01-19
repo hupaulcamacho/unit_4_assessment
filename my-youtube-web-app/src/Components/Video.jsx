@@ -36,22 +36,28 @@ class Video extends Component {
     _onReady = (event) => {
         event.target.pauseVideo();
     }
-    makeComment = () => {
+    makeComment = (e) => {
+        e.preventDefault()
+
         const { comments, name, commentBody } = this.state
         let updateComments = [...comments]
 
-        const newComment = <div> <h3>{name}</h3> <p>{commentBody}</p></div>
+        if (name && commentBody) {
+            const newComment = <div> <h3>{name}</h3> <p>{commentBody}</p></div>
 
-        updateComments.push(newComment)
+        updateComments.unshift(newComment)
 
         this.setState({
             comments: updateComments
         })
+        } else {
+            window.alert("input cannot be blank")
+        }
     }
 
 
     render() {
-        const { videoId, name, commentBody, Comments } = this.state
+        const { videoId, name, commentBody, comments } = this.state
         return (
             <div className='video-page'>
                 <h1>Video</h1>
@@ -67,10 +73,15 @@ class Video extends Component {
                         <input className='comment-form-input' placeholder='Name' onChange={this.handleNameChange} type='text' value={name} /> <br/>
                         <h2>Comment</h2>
                         <input className='comment-form-input' placeholder='...' onChange={this.handleCommentChange}type='text' value={commentBody} /><br/>
-                        <input type='submit' value='Submit' />
-                    </form>
-                    {Comments}
+                        <input className='comment-submit' type='submit' value='Submit' />
+                    </form> 
+                    
                 </div>
+                <br/>
+                <div className='comments'>
+                        {comments}
+                </div>
+                
             </div> 
         )
     }

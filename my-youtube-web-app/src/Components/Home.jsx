@@ -51,6 +51,7 @@ class Home extends Component {
 
         return (
             <div className='main'>
+                <h1> MiniTube</h1>
                 <form onSubmit={this.handleSubmit}>
                     <input placeholder='Search...' className='search-input' type='text' onChange={this.handleSearchChange} value={search}/>
                     <input className='search-button' type='submit' value='Search'/>

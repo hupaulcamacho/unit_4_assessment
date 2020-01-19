@@ -16,7 +16,7 @@ class App extends React.Component {
     return (
       <div className='App'>
         <nav>
-          <b> Youtube </b>
+          <b> MiniTube </b>
           <Link to='/'>Home</Link>{'  '}
           <Link to='/about'>About</Link>
           
