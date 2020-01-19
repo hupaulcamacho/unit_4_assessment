@@ -1,38 +1,89 @@
-.App {
-  text-align: center;
+nav {
+    background-color: red;
+    color: white;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a {
+    color: white;
+    padding: 1em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.main {
+    padding-top:1em;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.video-page {
+    text-align: center
+}  
+
+.video {
+    padding: 1em;
 }
 
-.App-link {
-  color: #61dafb;
+.search-button {
+    height: 2em;
+    width: 6em; 
+    font-size: 15px;
+    color: white;
+    background-color:red;
+    border-radius: 5px;
+}
+.search-button:hover {
+    background-color:rgb(255, 78, 78);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search-input{
+    height: 2em;
+    font-size: 15px;
+    width: 700px;
+    border: 1px solid gray;
+    border-radius: 5px;
+
+}
+
+.no-search {
+    background-color: rgb(185, 185, 185);
+    margin-top: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    border: 1px solid gray;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.results {
+    margin-top: 1em;
+    text-align: center;
+    width: 55%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
+}  
+
+.comments-section{
+    display:flex;
+    align-items: center;
+    text-align: left;
+    border-top: 2px solid rgb(192, 192, 192);
+    margin: auto;
+    margin-top: 1em;
+    width: 70%;
+    padding: 10px;
+} 
+.comment-form {
+    margin: auto;
+}
+
+.comment-form-input {
+    height: 2em;
+    font-size: 15px;
+    width: 800px;
+    border: 1px solid gray;
+    border-radius: 3px;
 }
