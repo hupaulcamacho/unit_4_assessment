@@ -5,7 +5,6 @@ const SearchResults = (props) => {
     const { results } = props
     const searchResults = [];
     
-
     results.forEach(result => {
         searchResults.push(
             <div className='video'>
