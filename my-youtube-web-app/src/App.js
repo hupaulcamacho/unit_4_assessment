@@ -8,18 +8,13 @@ import About from './Components/About'
 import Video from './Components/Video'
 
 class App extends React.Component {
-  constructor() {
-    super()
-  }
   render() {
-    
     return (
       <div className='App'>
         <nav>
-          <b> MiniTube </b>
+          <Link to='/'><b> MiniTube </b></Link>{'  '}
           <Link to='/'>Home</Link>{'  '}
           <Link to='/about'>About</Link>
-          
         </nav>
         <Switch>
           <Route exact path='/' component={Home}/>
@@ -29,8 +24,6 @@ class App extends React.Component {
       </div>
     )
   }
-    
-  
 }
 
 export default App;

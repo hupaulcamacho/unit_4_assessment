@@ -17,11 +17,13 @@ class Video extends Component {
             name: e.target.value
         })
     }
+    
     handleCommentChange = (e) => {
         this.setState({
             commentBody: e.target.value
         })
     }
+
     loadOptions = () => {
         const opts = {
             height: '390',
@@ -36,9 +38,9 @@ class Video extends Component {
     _onReady = (event) => {
         event.target.pauseVideo();
     }
+
     makeComment = (e) => {
         e.preventDefault()
-
         const { comments, name, commentBody } = this.state
         let updateComments = [...comments]
 
@@ -46,7 +48,6 @@ class Video extends Component {
             const newComment = <div> <h3>{name}</h3> <p>{commentBody}</p></div>
 
         updateComments.unshift(newComment)
-
         this.setState({
             comments: updateComments
         })
@@ -55,16 +56,15 @@ class Video extends Component {
         }
     }
 
-
     render() {
         const { videoId, name, commentBody, comments } = this.state
         return (
             <div className='video-page'>
                 <h1>Video</h1>
                 <YouTube 
-                videoId={videoId}
-                opts={this.loadOptions()}
-                onReady={this._onReady}
+                    videoId={videoId}
+                    opts={this.loadOptions()}
+                    onReady={this._onReady}
                 />
 
                 <div className='comments-section'>
@@ -85,8 +85,6 @@ class Video extends Component {
             </div> 
         )
     }
-
 }
-
 
 export default Video
