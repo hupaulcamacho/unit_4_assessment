@@ -1,73 +1,15 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import API_KEY from '../unlockapi'
-import Video from './Video'
-import { Route, Switch } from 'react-router-dom';
-
-import SearchResults from './SearchResults'
-
-
-class Home extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            search: '',
-            results: [],
-            isSearch: false
-        }
-    }
-
-    handleSearchChange = e => {
-        this.setState({
-            search: e.target.value
-        })
-    }
-
-    handleSubmit = async (e) => { 
-        e.preventDefault()
-        const { search } = this.state
-        const URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=8&q=${search}&type=video&key=${API_KEY}`
-        try {
-            let results = await axios.get(URL)
-            console.log(results.data.items)
-            this.setState({
-                results: results.data.items,
-                isSearch: true
-            })
-            
-        } catch (err) {
-            console.log(err)
-        }
-    }
-
+import React, { Component } from 'react'
+export default class Home extends Component {
     render() {
-        const { search, results, isSearch } = this.state
-        let searchResults = (isSearch) ? 
-        <SearchResults results={results} />
-        :
-        <div className='no-search'>
-            <p>No Search Results Yet! Please submit a search above</p>
-        </div>
-
         return (
-            <div className='main'>
-                <h1> MiniTube</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <input placeholder='Search...' className='search-input' type='text' onChange={this.handleSearchChange} value={search}/>
-                    <input className='search-button' type='submit' value='Search'/>
-                </form>
-                
-                {searchResults}
-                
-                
-                <Switch>
-                    <Route exact path='/home' component={Home}/>
-                    <Route path='/video/:videoId' component={Video}/>
-                </Switch>
+            <div>
+                <h1> Welcome to Minitube! </h1>
+                <p>Click on image to Redirect to login Page</p>
+                <a href='/login'>
+                    <img src='https://about.fb.com/wp-content/uploads/2016/10/casting_newsroomasset_blue1.png?fit=1911%2C1078' width='1000' />
+                </a>
                 
             </div>
         )
     }
 }
-
-export default Home;
